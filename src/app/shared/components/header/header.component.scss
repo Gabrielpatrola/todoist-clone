@@ -1,0 +1,24 @@
+@import "src/styles/mixins";
+@import "src/styles/variables";
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+
+  &__row {
+    padding: 0 50px;
+    height: $header-height-desktop;
+
+    @include phones {
+      padding: 0 10px;
+      height: $header-height-phone;
+    }
+  }
+
+  &__logout {
+    margin-left: auto;
+  }
+}

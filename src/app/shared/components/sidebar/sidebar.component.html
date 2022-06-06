@@ -1,0 +1,18 @@
+<mat-sidenav-container class="sidebar">
+  <mat-sidenav #sidebar class="sidebar__sidenav" [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false">
+    <mat-list>
+      <h2 matSubheader>Filter by completed</h2>
+      <mat-list-item>
+        <mat-checkbox [(ngModel)]="done" (change)="filter()">Done</mat-checkbox>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-checkbox [(ngModel)]="notdone" (change)="filter()">Not done</mat-checkbox>
+      </mat-list-item>
+    </mat-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="sidebar__content">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
