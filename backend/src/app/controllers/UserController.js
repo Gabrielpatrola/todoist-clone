@@ -69,7 +69,7 @@ class UserController {
 
     await user.update(req.body);
 
-    const { id, name, avatar } = await User.findByPk(req.userId);
+    const { id, name } = await User.findByPk(req.userId);
 
     return res.json({
       id,
