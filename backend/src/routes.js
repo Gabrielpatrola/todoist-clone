@@ -1,9 +1,14 @@
-import express from "express";
+import { Router } from "express";
+import UserController from "./app/controllers/UserController";
+import SessionController from "./app/controllers/SessionController";
 
-const routes = express.Router();
+import authMiddleware from "./app/middlewares/auth";
 
-routes.get("/", (req, res) => {
-  return res.json({ name: "Ciclano Fulano" });
-});
+const routes = new Router();
 
-export { routes as default };
+routes.post("/users", UserController.store);
+routes.post("/sessions", SessionController.store);
+
+routes.use(authMiddleware);
+routes.put("/users", UserController.update);
+export default routes;
