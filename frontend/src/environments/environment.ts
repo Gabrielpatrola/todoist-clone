@@ -6,7 +6,7 @@ import { Environment } from './interface';
 
 export const environment: Environment = {
   production: false,
-  apiKey: 'AIzaSyCUtUM29Nq98XGeMf0NezjN-aruHF6gsyk'
+  apiUrl: 'http://localhost:3333',
 };
 
 /*
