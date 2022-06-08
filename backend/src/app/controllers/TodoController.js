@@ -5,7 +5,7 @@ import Todo from "../models/Todo";
 class TodoController {
   async index(req, res) {
     const { page = 1 } = req.query;
-
+    
     const todos = await Todo.findAll({
       where: { user_id: req.userId, deleted_at: null },
       order: ["created_at"],

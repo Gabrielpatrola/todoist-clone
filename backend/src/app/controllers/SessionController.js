@@ -21,11 +21,15 @@ class SessionController {
     });
 
     if (!user) {
-      return res.status(404).json({ error: "User not found" });
+      return res
+        .status(404)
+        .json({ error: "User not found", message: "INVALID_EMAIL_OR_PASSWORD" });
     }
 
     if (!(await user.checkPassword(password))) {
-      return res.status(401).json({ error: "Password does not match" });
+      return res
+        .status(401)
+        .json({ error: "Password does not match", message: "INVALID_EMAIL_OR_PASSWORD" });
     }
 
     const { id, name } = user;
@@ -39,6 +43,7 @@ class SessionController {
       token: jwt.sign({ id }, authConfig.secret, {
         expiresIn: authConfig.expiresIn,
       }),
+      expiresIn: authConfig.expiresIn[0],
     });
   }
 }
