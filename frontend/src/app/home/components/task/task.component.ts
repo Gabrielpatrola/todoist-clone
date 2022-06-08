@@ -35,7 +35,7 @@ export class TaskComponent implements OnInit, OnDestroy {
     this.checked = false;
     this.newTitle = new FormControl('', [
       Validators.required,
-      Validators.maxLength(512),
+      Validators.maxLength(255),
     ]);
   }
 

@@ -2,7 +2,7 @@
     <app-search></app-search>
     <app-create-task></app-create-task>
 </div>
-<ul class="todos" *ngIf="todos.length; else loading">
+<ul class="todos" *ngIf="todos.length">
     <li *ngFor="let todo of todos | filterTodos:done | searchTodos:searchStr" class="todos__item">
         <app-task [id]="todo.id" [title]="todo.title" [completed]="todo.completed"></app-task>
     </li>

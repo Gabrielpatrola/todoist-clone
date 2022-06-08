@@ -22,17 +22,21 @@ export class HomePageComponent implements OnInit, OnDestroy {
     private tasksService: TasksService,
     private searchService: SearchService
   ) {
-    this.searchSub = this.searchService.getSearch()
-    .subscribe((search) => {
+    this.searchSub = this.searchService.getSearch().subscribe((search) => {
       this.searchStr = search;
     });
-    this.filterSub = this.searchService.getCompleted()
-    .subscribe((completed) => {
-      this.done = completed;
-    });
-   }
+    this.filterSub = this.searchService
+      .getCompleted()
+      .subscribe((completed) => {
+        this.done = completed;
+      });
+  }
 
   ngOnInit(): void {
+    this.getAllTasks();
+  }
+
+  getAllTasks(): void {
     this.tasksSub = this.tasksService.getAll().subscribe((todos) => {
       this.todos = todos;
     });

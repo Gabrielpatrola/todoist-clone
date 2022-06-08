@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormControl } from '@angular/forms';
 import { Todo } from 'src/app/shared/interfaces';
 import { TasksService } from 'src/app/shared/services/tasks/tasks.service';
-import { tap } from 'rxjs/operators';
+import { HomePageComponent } from '../../pages/home-page/home-page.component';
 
 @Component({
   selector: 'app-create-task',
@@ -13,7 +13,10 @@ export class CreateTaskComponent implements OnInit {
   public title: FormControl;
   public submitted: boolean;
 
-  constructor(private tasksService: TasksService) {}
+  constructor(
+    private tasksService: TasksService,
+    private homePage: HomePageComponent
+  ) {}
 
   ngOnInit(): void {
     this.submitted = false;
@@ -30,7 +33,6 @@ export class CreateTaskComponent implements OnInit {
 
     this.submitted = true;
     const todo: Todo = {
-      userId: 1,
       title: this.title.value,
       completed: false,
     };
@@ -39,6 +41,7 @@ export class CreateTaskComponent implements OnInit {
       () => {
         this.title.reset();
         this.submitted = false;
+        this.homePage.getAllTasks();
       },
       () => {
         this.submitted = false;
