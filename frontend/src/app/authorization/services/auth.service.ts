@@ -25,27 +25,16 @@ export class AuthService {
   public login(user: User): Observable<any> {
     user.returnSecureToken = true;
     return this.http
-      .post(
-        `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${environment.apiKey}`,
-        user
-      )
-      .pipe(
-        tap(this.setToken), 
-        catchError(this.handleError.bind(this))
-      );
+      .post(`${environment.apiUrl}/sessions`, user)
+      .pipe(tap(this.setToken), catchError(this.handleError.bind(this)));
   }
 
   private handleError(error: HttpErrorResponse) {
-    const { message } = error.error.error;
+    const { message } = error.error;
+
     switch (message) {
-      case 'INVALID_EMAIL':
-        this.error$.next('Incorrect email');
-        break;
-      case 'INVALID_PASSWORD':
-        this.error$.next('Incorrect password');
-        break;
-      case 'EMAIL_NOT_FOUND':
-        this.error$.next('Email not found');
+      case 'INVALID_EMAIL_OR_PASSWORD':
+        this.error$.next('Incorrect password or email');
         break;
     }
     return throwError(error);
@@ -62,9 +51,9 @@ export class AuthService {
   private setToken(response: FbAuthResponse | null): void {
     if (response) {
       const expDate = new Date(
-        new Date().getTime() + +response.expiresIn * 1000
+        new Date().getTime() + +response.expiresIn * 24 * 60 * 60 * 1000
       );
-      localStorage.setItem('fb-token', response.idToken);
+      localStorage.setItem('fb-token', response.token);
       localStorage.setItem('fb-token-exp', expDate.toString());
     } else {
       localStorage.clear();
