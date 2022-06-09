@@ -13,7 +13,7 @@
           formControlName="email" 
           placeholder="abc@xyz.com" 
           name="email">
-          <mat-hint>Enter: angular@love.com</mat-hint>
+          <mat-hint>Enter: teste@teste.com</mat-hint>
         <mat-error *ngIf="loginForm.controls['email'].hasError('email')">
           Please enter a valid email address
         </mat-error>
@@ -30,7 +30,7 @@
           placeholder="password" 
           type="password"
           name="password">
-          <mat-hint>Enter: 12345678</mat-hint>
+          <mat-hint>Enter: 123456</mat-hint>
         <mat-error *ngIf="loginForm.controls['password'].hasError('minlength') 
           || loginForm.controls['password'].hasError('maxlength')">
           Password length should be between 6 and 32 characters
