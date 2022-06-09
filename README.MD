@@ -78,6 +78,8 @@ Crie um arquivo chamado de '.env' copiando as informações existentes no arquiv
   $ yarn # ou npm install
   # Crie o banco de dados da aplicação
   $ npx sequelize-cli db:migrate
+  # Popule o banco de dados da aplicação
+  npx sequelize-cli db:seed:all
   # Inicie o servidor
   $ yarn dev # ou npm run dev
 ```
