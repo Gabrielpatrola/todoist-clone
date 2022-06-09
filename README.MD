@@ -70,7 +70,7 @@ Crie um arquivo chamado de '.env' copiando as informações existentes no arquiv
 
 ```sh
   # Entre na pasta do backend
-  $ cd backend
+  $ cd api
   # Instale as dependências da aplicação
   $ yarn # ou npm install
   # Crie o banco de dados da aplicação
