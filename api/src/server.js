@@ -1,10 +1,3 @@
-import app from './app';
-const path = require('path')
+import app from "./app";
 
-app.use(express.static(path.join(__dirname, '../frontend/build')))
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + '/../frontend/build/index.html'))
-})
-
-app.listen(3333);
+app.listen(process.env.PORT || 3333, () => console.log("Server is running..."));

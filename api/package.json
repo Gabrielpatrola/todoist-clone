@@ -2,13 +2,20 @@
   "name": "http-server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "dev": "nodemon src/server.js",
-    "dev:debug": "nodemon --inspect src/server.js"
+    "dev:debug": "nodemon --inspect src/server.js",
+    "start": "node dist/server.js",
+    "clean": "rimraf dist",
+    "build": "npm run clean && mkdir -p dist && babel src -s -D -d dist"
   },
   "author": "",
   "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.0",
     "cors": "^2.8.5",
@@ -17,12 +24,33 @@
     "express-async-errors": "^3.1.1",
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.3.3",
+    "rimraf": "^2.6.3",
     "sequelize": "^6.20.1",
     "youch": "^3.2.0",
     "yup": "^0.32.11"
   },
   "devDependencies": {
+    "babel-plugin-transform-runtime": "^6.23.0",
     "nodemon": "^2.0.16",
     "sucrase": "^3.21.0"
+  },
+  "engines": {
+    "node": "16.x"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ],
+    "plugins": [
+      "transform-object-rest-spread",
+      "transform-class-properties"
+    ]
   }
 }

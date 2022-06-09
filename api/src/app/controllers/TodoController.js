@@ -1,6 +1,6 @@
 import * as Yup from "yup";
-import User from "../models/User";
-import Todo from "../models/Todo";
+import User from "../models/user";
+import Todo from "../models/todo";
 
 class TodoController {
   async index(req, res) {

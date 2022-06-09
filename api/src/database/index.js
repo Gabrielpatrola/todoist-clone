@@ -1,6 +1,6 @@
 import Sequelize from "sequelize";
-import User from "../app/models/User";
-import Todo from "../app/models/Todo";
+import User from "../app/models/user";
+import Todo from "../app/models/todo";
 import databaseConfig from "../config/database";
 
 const models = [User, Todo];
