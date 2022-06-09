@@ -10,6 +10,7 @@
   <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/gabrielpatrola/todoist-clone?color=informational&style=flat&logo=GitHub-Actions">
   <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/gabrielpatrola/todoist-clone?color=important&style=flat&logo=Javascript">
   <img alt="License" src="https://img.shields.io/github/license/gabrielpatrola/todoist-clone?&style=flat&logo=Google-Sheets">
+   <a href="./assets/Todoist.postman_collection.json" target="_blank" rel="noopener"><img alt="Run in Postman" src="https://run.pstmn.io/button.svg"></a>
 <p>
 
 <h3 align="center">
@@ -20,6 +21,8 @@
   <a href="#-como-usar">Como usar</a>
   <span> · </span>
   <a href="#-como-contribuir">Como contribuir</a>
+  <span> · </span>
+  <a href="#-material-de-apoio">Material de apoio</a>
   <span> · </span>
   <a href="#-licença">Licença</a>
 </h3>
@@ -98,6 +101,10 @@ Fique atento para as atualizações desse projeto. Não esqueça de deixar uma e
 
 Basta criar um fork do projeto, realizar as modificações que achar necessário e depois fazer um Pull Request.
 Toda ajuda é bem vinda, caso veja algum erro, não hesite em contribuir com o projeto!
+
+## 📚 Material de apoio
+
+- **<a href="./assets/Todoist.postman_collection.json" target="_blank" rel="noopener">Postman</a>** com as requisições
 
 ## 📃 Licença
 
